@@ -53,6 +53,7 @@ export default class QRCodeScanner extends Component {
     flashMode: PropTypes.oneOf(CAMERA_FLASH_MODES),
     cameraProps: PropTypes.object,
     cameraTimeoutView: PropTypes.element,
+    useGoogleVision: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -120,6 +121,7 @@ export default class QRCodeScanner extends Component {
         <Text style={{ color: 'white' }}>Tap to activate camera</Text>
       </View>
     ),
+    useGoogleVision: false,
   };
 
   constructor(props) {
@@ -271,6 +273,26 @@ export default class QRCodeScanner extends Component {
   }
 
   _renderCameraComponent() {
+    if (this.props.useGoogleVision) {
+      return (
+        <Camera
+          androidCameraPermissionOptions={{
+            title: this.props.permissionDialogTitle,
+            message: this.props.permissionDialogMessage,
+            buttonPositive: this.props.buttonPositive,
+          }}
+          style={[styles.camera, this.props.cameraStyle]}
+          onGoogleVisionBarcodesDetected={this._handleBarCodeRead.bind(this)}
+          type={this.props.cameraType}
+          flashMode={this.props.flashMode}
+          captureAudio={false}
+          {...this.props.cameraProps}
+        >
+          {this._renderCameraMarker()}
+        </Camera>
+      )
+    }
+
     return (
       <Camera
         androidCameraPermissionOptions={{
