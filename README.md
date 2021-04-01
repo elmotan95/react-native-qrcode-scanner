@@ -1,6 +1,8 @@
-# react-native-qrcode-scanner
+# react-native-qrcode-scanner-plus
 
-[![npm version](https://badge.fury.io/js/react-native-qrcode-scanner.svg)](https://badge.fury.io/js/react-native-qrcode-scanner) [![Backers on Open Collective](https://opencollective.com/react-native-qrcode-scanner/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-native-qrcode-scanner/sponsors/badge.svg)](#sponsors)
+[![npm version](https://badge.fury.io/js/react-native-qrcode-scanner-plus.svg)](https://badge.fury.io/js/react-native-qrcode-scanner-plus) [![Backers on Open Collective](https://opencollective.com/react-native-qrcode-scanner/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-native-qrcode-scanner/sponsors/badge.svg)](#sponsors)
+
+Forked from: https://github.com/moaazsidat/react-native-qrcode-scanner
 
 A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
 
@@ -56,7 +58,22 @@ android {
 [react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to add to your project. To install, run the following commands:
 
 1. `npm install react-native-camera --save`
-2. `react-native link react-native-camera`
+2. `react-native link react-native-camera` (no need for react version 0.60+)
+
+If you want to use MLKit
+
+For more documentation please read:
+https://github.com/react-native-camera/react-native-camera/blob/master/docs/installation.md#additional-installation-steps
+
+```
+android {
+  ...
+  defaultConfig {
+    ...
+    missingDimensionStrategy 'react-native-camera', 'mlkit' <-- insert this line
+  }
+}
+```
 
 #### New Version/Migration
 
@@ -118,6 +135,7 @@ class ScanScreen extends Component {
     return (
       <QRCodeScanner
         onRead={this.onSuccess}
+        useGoogleVision={false} // if you enable mlkit, you can set this to true
         flashMode={RNCamera.Constants.FlashMode.torch}
         topContent={
           <Text style={styles.centerText}>

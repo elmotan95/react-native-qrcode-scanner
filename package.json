@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-scanner-plus",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "Moaaz Sidat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
+    "url": "https://github.com/elmotan95/react-native-qrcode-scanner/issues"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.4",
@@ -42,7 +42,7 @@
   "peerDependencies": {
     "react-native-camera": ">=3.43.1"
   },
-  "homepage": "https://github.com/moaazsidat/react-native-qrcode-scanner#readme",
+  "homepage": "https://github.com/elmotan95/react-native-qrcode-scanner#readme",
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
