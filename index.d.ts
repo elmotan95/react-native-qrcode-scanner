@@ -5,10 +5,10 @@
  */
 import { Component } from 'react';
 import { ViewStyle, StyleProp } from 'react-native';
-import { RNCameraProps, BarCodeReadEvent } from 'react-native-camera';
+import { RNCameraProps, BarCodeReadEvent, GoogleVisionBarcodesDetectedEvent } from 'react-native-camera';
 
 export interface RNQRCodeScannerProps {
-  onRead(e: BarCodeReadEvent): void;
+  onRead(e: BarCodeReadEvent | GoogleVisionBarcodesDetectedEvent): void;
   vibrate?: boolean;
   reactivate?: boolean;
   reactivateTimeout?: number;
