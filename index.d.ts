@@ -32,6 +32,7 @@ export interface RNQRCodeScannerProps {
   cameraTimeout?: number;
   cameraTimeoutView?: JSX.Element;
   useGoogleVision?: boolean;
+  flashMode?: any;
 }
 
 export interface RNQRCodeScannerState {
