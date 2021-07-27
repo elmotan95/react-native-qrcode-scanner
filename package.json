@@ -40,7 +40,7 @@
     "prettier": "^1.12.1"
   },
   "peerDependencies": {
-    "react-native-camera": ">=3.43.1"
+    "react-native-camera": ">=4.0.0"
   },
   "homepage": "https://github.com/elmotan95/react-native-qrcode-scanner#readme",
   "release": {
